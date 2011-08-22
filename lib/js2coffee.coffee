@@ -351,9 +351,6 @@ class Builder
 
   '.': (n) ->
     # **Caveat:**
-    # *If called as `this.xxx`, it should use the at sign (`n.xxx`).*
-
-    # **Caveat:**
     # *If called as `x.prototype`, it should use double colons (`x::`).*
 
     left  = @build n.left()
@@ -361,8 +358,6 @@ class Builder
 
     if n.isThis and n.isPrototype
       "@::"
-    else if n.isThis
-      "@#{right}"
     else if n.isPrototype
       "#{left}::"
     else if n.left().isPrototype
