@@ -10,7 +10,7 @@ class Code
     @
 
   scope: (str, level=1) ->
-    indent = strRepeat("  ", level)
+    indent = strRepeat("    ", level)
     @code  = rtrim(@code) + "\n"
     @code += indent + rtrim(str).replace(/\n/g, "\n#{indent}") + "\n"
     @
